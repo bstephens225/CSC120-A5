@@ -15,21 +15,34 @@ public class Train {
     public Engine getEngine(){
         return engine;
     }
+
+     //return the ith car
     public Car getCar(int i){
         return cars.get(i);
-    } //to return the ith car
+    }
 
+    //return the maximum total capacity across all Cars
     public int getMaxCapacity() {
-        return 1;
-    }//which will return the maximum total capacity across all Cars
+        if (cars.size()==0){
+            return 0;
+        }else{
+            return cars.size()*cars.get(0).getCapacity();
+        }
+    }
 
+    //return the number of remaining open seats across all Cars
     public int seatsRemaining() {
-        return 1;
-    }//which will return the number of remaining open seats across all Cars
-    
+        int remaining=0;
+        for (int i=0;i<cars.size();i++){
+            remaining+=cars.get(i).seatsRemaining();
+        }   
+        return remaining;
+    }
+
+    //prints a roster of all Passengers on board
     public void printManifest(){
         cars.forEach(car->car.printManifest());
-    } //that prints a roster of all Passengers on board
+    } 
 }
 
 
