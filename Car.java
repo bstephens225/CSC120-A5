@@ -18,12 +18,16 @@ public class Car {
     public void addPassenger(Passenger p){
         if(seatsRemaining()!=0){
             passengers.add(p);
+        }else{
+            throw new RuntimeException("no room in this car!");
         }
     }
 
     public void removePassenger(Passenger p){
         if(passengers.contains(p)){
             passengers.remove(p);
+        }else{
+            throw new RuntimeException("passenger not found");
         }
     }
 

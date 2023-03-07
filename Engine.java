@@ -27,8 +27,7 @@ public class Engine {
 
     public void go(){
         if(fuelLevel==0){
-            System.out.println("you're out of fuel you cannot go!");
-            throw new RuntimeException();
+            throw new RuntimeException("you're out of fuel you cannot go!");
         }else if(fuelLevel>=1){
             fuelLevel-=1;
             System.out.println("you have "+ fuelLevel+ " left");
